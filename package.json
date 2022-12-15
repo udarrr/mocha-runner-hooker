@@ -1,6 +1,6 @@
 {
     "name": "mocha-runner-hooker",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Additional functionality for each mocha test by hooks",
     "main": "./build/index",
     "types": "./build/index.d.ts",

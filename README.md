@@ -1,5 +1,7 @@
 # mocha-runner-hooker
 
+![Released](https://github.com/udarrr/mocha-runner-hooker/workflows/Create%20tagged%20release/badge.svg)
+
 ## Simple hooker for mocha
 
 ### Installation
@@ -10,13 +12,17 @@ npm i mocha-runner-hooker
 
 ### The main idea we could add to describe, as much some types hooks as we want and they are going to be executed in orded as were added
 
--   No necessary add repeated hooks in each test just do it once in mocha-runner-hooker.
--   Or add new functionality for all your 1000 test cases through mocha-runner-hooker
+- No necessary add repeated hooks in each test just do it once in mocha-runner-hooker.
+- Or add new functionality for all your 1000 test cases through mocha-runner-hooker
+- Works with top level and nested describes (isTopLevelSuiteIncluded option)
+- Supported globalSetup functions array (the same like hooks)
+- Supported globalTeardown functions array (the same like hooks)
+- Supported custom reporter and substring title filter for describes
 
 ```javascript
 //without mocha-runner-hooker
 describe('Suite', function () {
-    it('1', async () => {
+    it('Test 1', async () => {
         console.log('test 1');
     });
 });
@@ -32,7 +38,7 @@ describe('Suite', function () {
     after(async function () {}); //on fly
     after(async function () {}); //on fly
 
-    it('1', async () => {
+    it('Test 1', async () => {
         console.log('test 1');
     });
 });
@@ -41,7 +47,7 @@ describe('Suite', function () {
 ## Add new hooks to runner
 
 ```javascript
-//testRunner.js or .ts
+//testRunner.js
 import {RunnerHelper} from 'mocha-runner-hooker';
 
 RunnerHelper.runner([
@@ -83,7 +89,7 @@ RunnerHelper.runner([
 and just add path to file with runner in your package.json scripts
 
 ```json
- "testRunner": "mocha ./runners/testRunner.js ./test/test.js --no-exit || exit 0",
+ "testRunner": "mocha ./testRunner.js ./tests/test.js --no-exit || exit 0",
 ```
 
 skip runner already was prepared (skip all it in describe if one was failed)
