@@ -25,21 +25,22 @@
         "clean": "rimraf ./build",
         "build": "npm run clean && tsc",
         "test": "mocha ./build/test/testRunner.js ./build/test/test.js",
-        "testSkipRunner": "mocha ./build/runners/skipRunner.js ./build/test/test.js",
-        "prepack": "clean-package --remove scripts",
+        "testSkipRunner": "mocha ./build/skipRunner.js ./build/test/test.js",
+        "prepack": "clean-package --remove scripts peerDependencies devDependencies",
         "pack": "npm pack",
-        "postpack": "clean-package restore peerDependencies devDependencies",
+        "postpack": "clean-package restore",
         "prepublishOnly": "npm run build",
         "publish_tag": "npm publish --tag latest --access=public"
     },
     "devDependencies": {
-        "typescript": "^4.6.2",
-        "chai": "^4.3.4",
         "@types/chai": "^4.2.22",
         "@types/mocha": "^8.2.3",
         "@types/node": "^10.0.0",
+        "chai": "^4.3.4",
         "prettier": "^2.5.1",
-        "ts-node": "^10.7.0"
+        "ts-node": "^10.7.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.6.2"
     },
     "peerDependencies": {
         "mocha": "^8.4.0"
