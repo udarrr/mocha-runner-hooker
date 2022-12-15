@@ -1,0 +1,47 @@
+{
+    "name": "mocha-runner-hooker",
+    "version": "1.0.1",
+    "description": "Additional functionality for each mocha test by hooks",
+    "main": "./build/index",
+    "types": "./build/index.d.ts",
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/udarrr/mocha-runner-hooker",
+    "bugs": {
+        "url": "https://github.com/udarrr/mocha-runner-hooker/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/udarrr/mocha-runner-hooker.git"
+    },
+    "author": {
+        "name": "Siarhei Kliushnikau",
+        "email": "sergey.klyshniko2@gmail.com",
+        "url": "https://github.com/udarrr"
+    },
+    "scripts": {
+        "clean": "rimraf ./build",
+        "build": "npm run clean && tsc",
+        "test": "mocha ./build/test/testRunner.js ./build/test/test.js",
+        "testSkipRunner": "mocha ./build/runners/skipRunner.js ./build/test/test.js",
+        "prepack": "clean-package --remove scripts",
+        "pack": "npm pack",
+        "postpack": "clean-package restore peerDependencies devDependencies",
+        "prepublishOnly": "npm run build",
+        "publish_tag": "npm publish --tag latest --access=public"
+    },
+    "devDependencies": {
+        "typescript": "^4.6.2",
+        "chai": "^4.3.4",
+        "@types/chai": "^4.2.22",
+        "@types/mocha": "^8.2.3",
+        "@types/node": "^10.0.0",
+        "prettier": "^2.5.1",
+        "ts-node": "^10.7.0"
+    },
+    "peerDependencies": {
+        "mocha": "^8.4.0"
+    }
+}

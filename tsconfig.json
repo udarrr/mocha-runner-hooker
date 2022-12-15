@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es2019",
+        "module": "commonjs",
+        "outDir": "./build",
+        "strict": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "declaration": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "useUnknownInCatchVariables": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true
+    },
+    "include": ["./src/**/*", "./test/**/*","./index.ts", "./global.d.ts", "skipRunner.ts"],
+    "exclude": ["build","node_modules"],
+}
