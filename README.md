@@ -19,31 +19,6 @@ npm i mocha-runner-hooker
 - Supported globalTeardown functions array (the same like hooks)
 - Supported custom reporter and substring title filter for describes
 
-```javascript
-//without mocha-runner-hooker
-describe('Suite', function () {
-    it('Test 1', async () => {
-        console.log('test 1');
-    });
-});
-```
-
-```javascript
-//with mocha-runner-hooker
-describe('Suite', function () {
-    before(async function () {}); //on fly
-    before(async function () {}); //on fly
-    beforeEach(async function () {}); //on fly
-    afterEach(async function () {}); //on fly
-    after(async function () {}); //on fly
-    after(async function () {}); //on fly
-
-    it('Test 1', async () => {
-        console.log('test 1');
-    });
-});
-```
-
 ## Add new hooks to runner
 
 ```javascript
@@ -53,7 +28,7 @@ import {RunnerHelper} from 'mocha-runner-hooker';
 RunnerHelper.runner([
     {
         hookType: 'before all',
-        hookTitle: 'skip option',
+        hookTitle: 'hello',
         order: 'Top',
         hookFn: () => {
             console.log('Hello from before');
@@ -61,7 +36,7 @@ RunnerHelper.runner([
     },
     {
         hookType: 'after all',
-        hookTitle: 'skip option',
+        hookTitle: 'hello',
         order: 'Top',
         hookFn: () => {
             console.log('Hello from after');
@@ -69,7 +44,7 @@ RunnerHelper.runner([
     },
     {
         hookType: 'after each',
-        hookTitle: 'skip option',
+        hookTitle: 'hello',
         order: 'Top',
         hookFn: () => {
             console.log('Hello from after each');
@@ -77,7 +52,7 @@ RunnerHelper.runner([
     },
     {
         hookType: 'before each',
-        hookTitle: 'skip option',
+        hookTitle: 'hello',
         order: 'Top',
         hookFn: () => {
             console.log('Hello from before each');

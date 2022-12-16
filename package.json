@@ -1,6 +1,6 @@
 {
     "name": "mocha-runner-hooker",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Additional functionality for each mocha test by hooks",
     "main": "./build/index",
     "types": "./build/index.d.ts",
@@ -21,6 +21,20 @@
         "email": "sergey.klyshniko2@gmail.com",
         "url": "https://github.com/udarrr"
     },
+    "keywords": [
+        "mocha",
+        "hook",
+        "hooks",
+        "runner",
+        "test",
+        "testing",
+        "before all",
+        "before each",
+        "after each",
+        "after all",
+        "globalSetup",
+        "globalTeardown"
+    ],
     "scripts": {
         "clean": "rimraf ./build",
         "build": "npm run clean && tsc",
